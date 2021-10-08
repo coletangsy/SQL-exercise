@@ -35,7 +35,6 @@ SELECT *
    FROM MovieTheaters LEFT JOIN Movies
    ON MovieTheaters.Movie = Movies.Code;
 
-
 -- 4.6
 -- Select all data from all movies and, if that movie is being shown in a theater, show the data from the theater.
 
