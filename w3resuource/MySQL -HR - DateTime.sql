@@ -1,13 +1,18 @@
 -- 1. Write a query to display the first day of the month (in datetime format) three months before the current month.
 -- Sample current date : 2014-09-03
 -- Expected result : 2014-06-01
-
+SELECT DATE(((PREIOD_ADD
+	(EXTRACT(YEAR_MONTH 
+		FROM CURDATE()),-3)*100)+1));
 
 -- 2. Write a query to display the last day of the month (in datetime format) three months before the current month.
-
-
+SELECT SUBDATE((ADDDATE(CURDATE(), INTERVAL 1 MONTH), 
+	INTERVAL DAYOFMONTH(CURDATE())DAY)) AS "LastDayOfTheMonth";
+    
 -- 3. Write a query to get the distinct Mondays from hire_date in employees tables.
-
+SELECT DISTINCT (STR_TO_DATE(
+	CONCAT(YEARWEEK(HIRE_DATE),"1"),"%X%V%W")) 
+FROM employees;
 
 -- 4. Write a query to get the first day of the current year.
 
@@ -69,5 +74,4 @@
 
 
 -- 21. Write a query to get the department ID, year, and number of employees joined.
-
 
